@@ -1,0 +1,1 @@
+float loss_function(float *y,float *y_hat,int n);
