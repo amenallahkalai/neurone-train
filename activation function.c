@@ -3,20 +3,20 @@
 #include <math.h>
 
 
-float Relu(float x){
+/*float Relu(float x){
     if (x>0){
         return x;
     }
     else{
         return 0;
     }
-}
+}*/
 
 float sigmoid(float x){
     return 1/(1+exp(-x));
 }
 
-float softMax(float x,float *t,int n){
+/*float softMax(float x,float *t,int n){
 
     float s = 0;
     float *p = t;
@@ -25,5 +25,5 @@ float softMax(float x,float *t,int n){
         p++;
     }
     return exp(x)/s;
-}
+}*/
 
