@@ -73,7 +73,7 @@ void train_neuron(Neuron *n, float learning_rate, float input[2], float y){
         }
         else{
             for (int i = 0; i < 2; i++){
-                fprintf(file_weight,"%f\n",n->weights[i]);
+                fprintf(file_weights,"%f\n",n->weights[i]);
             }
             
             break;
