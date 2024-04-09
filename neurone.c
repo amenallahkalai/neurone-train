@@ -37,13 +37,19 @@ void gradient_descent(Neuron *n, float learning_rate, float input[2], float y, f
 
 void train_neuron(Neuron *n, float learning_rate, float input[2], float y){
 
+    FILE *file_loss = fopen("file_loss.txt", "a");
+    FILE *file_weights = fopen("best_weights.txt", "w");
+
+    if (file_loss == NULL || file_weights == NULL) {
+        // Error handling if file opening fails
+        printf("Error: Unable to open files.\n");
+        return;
+    }
+
     while (1){
 
-        FILE * file_weight = fopen("best_weights.txt","w") ;
-
+        
         output_neuron(n,input);
-
-        FILE *file_loss = fopen("file_loss.txt","w");
         float loss = loss_function(&y,&n->output,1); 
         /*supposons que maana kn 1 sample de dataset ,
         kn aana akther et c'est le cas f aghleb awqat twalli haja o5ra
@@ -74,4 +80,6 @@ void train_neuron(Neuron *n, float learning_rate, float input[2], float y){
         }
     }
     
+    fclose(file_loss); // Close the file for loss
+    fclose(file_weights); // Close the file for weights
 }
